@@ -78,7 +78,9 @@ void doStuff()
 		string familiarName = fungus + " gravy fairy";
 		if(item_amount(to_item(familiarItemName)) > 0)
 			use(1, to_item(familiarItemName));
-		if(have_familiar($familiar[frozen gravy fairy]))
+		if(have_familiar($familiar[spooky gravy fairy]))
+			use_familiar($familiar[spooky gravy fairy]);
+		else if(have_familiar($familiar[frozen gravy fairy]))
 			use_familiar($familiar[frozen gravy fairy]);
 		else if(have_familiar($familiar[stinky gravy fairy]))
 			use_familiar($familiar[stinky gravy fairy]);
@@ -97,10 +99,10 @@ void doStuff()
 			if((item_amount($item[spooky fairy gravy]) > 1) && (item_amount($item[spooky glove]) == 0))
 			{
 				cli_execute("make spooky glove");
-				equip($slot[acc3], $item[spooky glove]);
 			}
 			if((item_amount($item[inexplicably glowing rock]) > 0) && (item_amount($item[spooky glove]) > 0) && (get_property("choiceAdventure5") != 1))
 			{
+				equip($slot[acc3], $item[spooky glove]);
 				set_property("choiceAdventure5", 1);
 			}
 
