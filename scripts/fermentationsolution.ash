@@ -78,7 +78,14 @@ void doStuff()
 		string familiarName = fungus + " gravy fairy";
 		if(item_amount(to_item(familiarItemName)) > 0)
 			use(1, to_item(familiarItemName));
-		use_familiar(to_familiar(familiarName));
+		if(have_familiar($familiar[frozen gravy fairy]))
+			use_familiar($familiar[frozen gravy fairy]);
+		else if(have_familiar($familiar[stinky gravy fairy]))
+			use_familiar($familiar[stinky gravy fairy]);
+		else if(have_familiar($familiar[flaming gravy fairy]))
+			use_familiar($familiar[flaming gravy fairy]);
+		else
+			abort("No elemental familiar detected, sorry!");
 		maximize("0.2 item drop, -combat", 0, 0, false);
 		if(item_amount($item[small leather glove]) == 0)
 			buy(1, $item[small leather glove]);
@@ -87,7 +94,7 @@ void doStuff()
 
 		while(item_amount($item[spooky bicycle chain]) == 0)
 		{
-			if((item_amount($item[spooky fairy gravy]) > 0) && (item_amount($item[spooky glove]) == 0))
+			if((item_amount($item[spooky fairy gravy]) > 1) && (item_amount($item[spooky glove]) == 0))
 			{
 				cli_execute("make spooky glove");
 				equip($slot[acc3], $item[spooky glove]);
