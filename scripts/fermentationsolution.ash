@@ -38,12 +38,13 @@ int previousChains = item_amount($item[spooky bicycle chain]);
 
 void doStuff()
 {
+	visit_url("questlog.php");
+	wait(5);
+	
 	if(get_property("questM03Bugbear").to_string() == "unstarted")
 	{
 		print("Starting quest!", "blue");
 		visit_url("place.php?whichplace=knoll_friendly&action=dk_mayor");
-		visit_url("questlog.php");
-		wait(5);
 	}
 	if(get_property("questM03Bugbear").to_string() == "started")
 	{
@@ -52,8 +53,6 @@ void doStuff()
 			buy(1, $item[annoying pitchfork]);
 
 		visit_url(mayor);
-		visit_url("questlog.php");
-		wait(5);
 	}
 	if(get_property("questM03Bugbear").to_string() == "step1")
 	{
@@ -68,8 +67,6 @@ void doStuff()
 		string fungusName = fungus + " mushroom";
 		buy(1, to_item(fungusName));
 		visit_url(mayor);
-		visit_url("questlog.php");
-		wait(5);
 	}
 	if(get_property("questM03Bugbear").to_string() == "step2")
 	{
@@ -108,9 +105,6 @@ void doStuff()
 
 			adventure(1, $location[The Spooky Gravy Burrow]);
 		}
-
-		visit_url("questlog.php");
-		wait(5);
 	}
 	if(get_property("questM03Bugbear").to_string() == "step3")
 	{
@@ -118,8 +112,6 @@ void doStuff()
 		take_closet(previousChains, $item[spooky bicycle chain]);
 		visit_url(mayor);
 		print("Congratulations on finishing your quest! Drink respectfully.", "green");
-		visit_url("questlog.php");
-		wait(5);
 	}
 }
 
