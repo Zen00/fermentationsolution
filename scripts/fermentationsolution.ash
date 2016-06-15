@@ -1,8 +1,8 @@
 /***********************************************\
 				
 			Fermentation Solution
-	
-				Written by Zen00
+			Written by Zen00
+			v. 1.0.2
 
 \***********************************************/
 
@@ -65,7 +65,8 @@ void doStuff()
 		}
 
 		string fungusName = fungus + " mushroom";
-		buy(1, to_item(fungusName));
+		if(item_amount(to_item(fungusName)) == 0)
+			buy(1, to_item(fungusName));
 		visit_url(mayor);
 	}
 	if(get_property("questM03Bugbear").to_string() == "step2")
