@@ -20,6 +20,8 @@ script "Fermentation Solution";
 //Remove the comment lines if you want to let me know you're using this script, so I know people are interested and keep writing
 //notify Zen00;
 
+//Use Clara's Bell if you have it on hand and want to
+boolean bellNC = false;
 
 /***********************************************\
 
@@ -91,6 +93,8 @@ void doStuff()
 			buy(1, $item[small leather glove]);
 		put_closet(previousChains, $item[spooky bicycle chain]);
 		set_property("choiceAdventure5", 2);
+		if(bellNC && (item_amount($item[Clara's bell]) > 0))
+			use(1, $item[Clara's bell]);
 
 		while(item_amount($item[spooky bicycle chain]) == 0)
 		{
