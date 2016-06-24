@@ -70,6 +70,8 @@ void doStuff()
 		if(item_amount(to_item(fungusName)) == 0)
 			buy(1, to_item(fungusName));
 		visit_url(mayor);
+		visit_url("questlog.php");
+		wait(5);
 	}
 	if(get_property("questM03Bugbear").to_string() == "step2")
 	{
